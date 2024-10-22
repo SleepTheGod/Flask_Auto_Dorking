@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    {% for dork, result in results.items() %}
+        <h2>{{ dork }}</h2>
+        {% if result %}
+            <ul>
+                {% for link in result %}
+                    <li><a href="{{ link }}">{{ link }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+    {% endfor %}
+    <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>
